@@ -10,6 +10,7 @@ PATH
   remote: .
   specs:
     dtu_blacklight_common (0.0.1)
+      blacklight (= 5.7)
       rails (~> 4.2.1)
       solr_wrapper
 
@@ -52,8 +53,21 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
+    autoprefixer-rails (6.1.0.1)
+      execjs
+      json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
+    blacklight (5.7.0)
+      bootstrap-sass (~> 3.2)
+      deprecation
+      kaminari (~> 0.13)
+      nokogiri (~> 1.6)
+      rails (>= 3.2.6, < 5)
+      rsolr (~> 1.0.6)
+    bootstrap-sass (3.3.5.1)
+      autoprefixer-rails (>= 5.0.0.1)
+      sass (>= 3.3.0)
     builder (3.2.2)
     byebug (8.2.0)
     coffee-rails (4.1.0)
@@ -64,6 +78,8 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     debug_inspector (0.0.2)
+    deprecation (0.2.2)
+      activesupport
     diff-lcs (1.2.5)
     engine_cart (0.8.0)
       bundler (~> 1.5)
@@ -81,6 +97,9 @@ GEM
       railties (>= 4.2.0)
       thor (>= 0.14, < 2.0)
     json (1.8.3)
+    kaminari (0.16.3)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -121,6 +140,8 @@ GEM
     rake (10.4.2)
     rdoc (4.2.0)
       json (~> 1.4)
+    rsolr (1.0.13)
+      builder (>= 2.1.2)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)

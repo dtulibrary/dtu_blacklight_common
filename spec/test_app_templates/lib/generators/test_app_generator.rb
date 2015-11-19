@@ -7,8 +7,13 @@
           # into the test app, this generator will be run immediately
           # after setting up the application
 
-          def install_engine
-            generate 'dtu_blacklight_common:install'
+          def install_blacklight
+            say_status('warning', 'GENERATING BLACKLIGHT', :yellow)
+            generate 'blacklight:install'
+          end
+
+          def install_dtu_common
+            generate 'dtu:solr_config_files', '-f'
           end
         end
 

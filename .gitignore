@@ -11,3 +11,4 @@ test/dummy/.sass-cache
 /solr_conf
 /solr
 /spec/fixtures
+/config/solr.yml

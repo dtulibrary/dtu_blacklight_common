@@ -12,12 +12,9 @@ And then execute:
 
     $ bundle install
 
-Then:
-
-    $ rails generate dtu_blacklight_common:install
-    $ rake db:migrate
-
 ## Usage
+
+The functionality provided by this gem assumes that Blacklight has already been installed, it does not run the blacklight installer.s
 
 ### Generator
 
@@ -29,6 +26,7 @@ Note that this gem is dependent on a forked version of solr_wrapper. Until the [
     
     gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper' 
     
+
 ## Solr
 
 Install a clean copy of solr and configure it to have our "toc" and "metadata" collections

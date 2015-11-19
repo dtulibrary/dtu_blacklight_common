@@ -8,5 +8,9 @@ module Dtu
     def copy_fixtures
       directory 'fixtures', 'spec/fixtures'
     end
+
+    def copy_solr_yml
+      copy_file 'solr.yml', 'config/solr.yml'
+    end
   end
 end
