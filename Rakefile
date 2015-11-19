@@ -8,6 +8,8 @@ require 'rdoc/task'
 require 'engine_cart/rake_task'
 require 'rspec/core/rake_task'
 
+Dir.glob('lib/tasks/*.rake').each { |r| import r }
+
 RDoc::Task.new(:rdoc) do |rdoc|
   rdoc.rdoc_dir = 'rdoc'
   rdoc.title    = 'DtuBlacklightCommon'

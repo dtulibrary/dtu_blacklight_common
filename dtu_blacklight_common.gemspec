@@ -18,7 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files = Dir["spec/**/*"]
 
   spec.add_dependency "rails", "~> 4.2.1"
-
+  spec.add_dependency "solr_wrapper"
+  spec.add_development_dependency 'execjs'
   spec.add_development_dependency "sqlite3"
   spec.add_development_dependency "rspec-rails"
   spec.add_development_dependency "engine_cart"
