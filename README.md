@@ -61,4 +61,4 @@ Install solr, configure it and import the data with one rake task:
     $ rails generate dtu:solr_config_files
     $ rake solr:setup_and_import
     $ rake engine_cart:generate
-    $ rake spec
+    $ rspec
