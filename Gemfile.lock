@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/flyingzumwalt/solr_wrapper.git
+  revision: 3c23d1ff84e99560740f56a46a586a37f985407e
+  specs:
+    solr_wrapper (0.4.0)
+      ruby-progressbar
+      rubyzip
+
 PATH
   remote: .
   specs:
@@ -141,9 +149,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    solr_wrapper (0.4.0)
-      ruby-progressbar
-      rubyzip
     sprockets (3.4.0)
       rack (> 1, < 3)
     sprockets-rails (2.3.3)
@@ -182,6 +187,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
+  solr_wrapper!
   sqlite3
   turbolinks
   uglifier (>= 1.3.0)

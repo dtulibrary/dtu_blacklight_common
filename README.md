@@ -25,6 +25,10 @@ To copy the shared solr config files to your local app, run:
 
     $ rails generate dtu:solr_config_files
     
+Note that this gem is dependent on a forked version of solr_wrapper. Until the [pull request](https://github.com/cbeer/solr_wrapper/pull/14)  has been merged and released, you will need to update your application's Gemfile with: 
+    
+    gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper' 
+    
 ## Solr
 
 Install a clean copy of solr and configure it to have our "toc" and "metadata" collections

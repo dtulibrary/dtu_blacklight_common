@@ -12,6 +12,7 @@ gemspec
 
 # To use a debugger
 # gem 'byebug', group: [:development, :test]
+gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper'
 
 # BEGIN ENGINE_CART BLOCK
 # engine_cart: 0.8.0
