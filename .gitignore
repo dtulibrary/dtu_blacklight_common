@@ -9,3 +9,4 @@ test/dummy/.sass-cache
 .idea/
 .internal_test_app
 /solr_conf
+/solr
