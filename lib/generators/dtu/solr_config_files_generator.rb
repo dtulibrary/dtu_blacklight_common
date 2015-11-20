@@ -11,6 +11,7 @@ module Dtu
 
     def copy_solr_yml
       copy_file 'solr.yml', 'config/solr.yml'
+      copy_file 'solr.yml', 'config/blacklight.yml'
     end
   end
 end
