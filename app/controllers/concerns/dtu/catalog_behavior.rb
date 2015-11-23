@@ -1,4 +1,4 @@
-module DtuBlacklightCommon
+module Dtu
   module CatalogBehavior
     extend ActiveSupport::Concern
     included do
