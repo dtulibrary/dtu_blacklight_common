@@ -5,4 +5,5 @@ module DtuBlacklightCommon
   extend ActiveSupport::Autoload
   autoload :CatalogBehavior
   autoload :Highlighting
+  autoload :DocumentHelper
 end
