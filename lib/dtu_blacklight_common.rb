@@ -4,4 +4,5 @@ require 'blacklight'
 module DtuBlacklightCommon
   extend ActiveSupport::Autoload
   autoload :CatalogBehavior
+  autoload :Highlighting
 end
