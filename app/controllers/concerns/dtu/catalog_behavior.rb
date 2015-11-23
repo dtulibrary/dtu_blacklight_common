@@ -10,6 +10,7 @@ module Dtu
         config.per_page = [10,20,50]
 
         config.solr_path = 'ddf_publ'
+        config.document_presenter_class = Dtu::DocumentPresenter
         config.default_solr_params = {
             :q => '*:*',
             :rows => 10,

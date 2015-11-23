@@ -8,9 +8,7 @@ describe Dtu::CatalogBehavior do
   describe '#blacklight_config' do
     describe '.document_presenter_class' do
       subject { controller.blacklight_config.document_presenter_class }
-      it {
-        pending 'until we implement Dtu::DocumentPresenter'
-        is_expected.to eq Dtu::DocumentPresenter }
+      it { is_expected.to eq Dtu::DocumentPresenter }
     end
     describe '.solr_path' do
       subject { controller.blacklight_config.solr_path }

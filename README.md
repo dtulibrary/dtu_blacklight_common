@@ -16,6 +16,10 @@ And then execute:
 
 The functionality provided by this gem assumes that Blacklight has already been installed, it does not run the blacklight installer.s
 
+### Initializer
+
+To modify configuration values like pubmed url, create an initializer at config/initializers/dtu_config.rb.  See the [default initializer file](../config/initializers/dtu_config.rb) for reference.
+
 ### Generator
 
 To copy the shared solr config files to your local app, run:

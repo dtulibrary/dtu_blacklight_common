@@ -8,6 +8,7 @@ test/dummy/tmp/
 test/dummy/.sass-cache
 .idea/
 .internal_test_app
+.byebug_history
 /solr_conf
 /solr
 /spec/fixtures
