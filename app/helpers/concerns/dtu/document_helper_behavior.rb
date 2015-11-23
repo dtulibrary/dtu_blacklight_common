@@ -1,5 +1,6 @@
-module DtuBlacklightCommon
-  module DocumentHelper
+module Dtu
+  module DocumentHelperBehavior
+
     # Render field comprised of highlighted and non-highlighted values
     def render_highlight_field args
       document ||= args[:document]
