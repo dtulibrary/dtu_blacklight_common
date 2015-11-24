@@ -17,7 +17,7 @@ Gem::Specification.new do |spec|
   spec.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]
   spec.test_files = Dir["spec/**/*"]
 
-  spec.add_dependency "rails", "~> 4.2.1"
+  spec.add_dependency "rails", "~> 4.1"
   spec.add_dependency "solr_wrapper"
   spec.add_dependency "blacklight", '~> 5.7.0'
 
