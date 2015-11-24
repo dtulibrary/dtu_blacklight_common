@@ -1,7 +1,6 @@
 describe Dtu::CatalogBehavior do
 
   controller(ApplicationController) do
-    include Blacklight::Catalog
     include Dtu::CatalogBehavior
   end
 
