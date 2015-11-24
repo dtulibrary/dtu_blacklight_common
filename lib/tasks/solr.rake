@@ -13,7 +13,6 @@ namespace :solr do
     SolrWrapper.default_instance_options[:download_dir] ||= Rails.root.to_s + '/tmp' if defined? Rails
     # @solr_instance = SolrWrapper.default_instance
     @solr_instance = SolrWrapper::Instance.new SolrWrapper.default_instance_options
-    puts @solr_instance.options
   end
 
   desc 'Set up a clean solr, configure it and import sample data'
