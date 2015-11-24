@@ -65,4 +65,17 @@ describe DocumentHelper do
       rendered.each {|tag| expect(tag).to_not have_content('.....') }
     end
   end
+
+  describe 'render_highlight_field' do
+    let(:authors) { ["Marie Shelley", "Emily Brontë", "Charlotte Brontë", "George Eliot"] }
+    let (:document) { SolrDocument.new('authors_ts' => authors) }
+    subject { helper.render_highlight_field(document: document, field: 'authors_ts') }
+    before do
+      allow(document).to receive(:has_highlight_field?).with('authors_ts').and_return(true)
+      allow(document).to receive(:highlight_field).with('authors_ts').and_return(['<em>Emily Brontë</em>'])
+    end
+    it 'combines the highlighted and non-highlighted authors' do
+      expect(subject).to eq(["Marie Shelley", "<em>Emily Brontë</em>", "Charlotte Brontë", 'George Eliot'])
+    end
+  end
 end
