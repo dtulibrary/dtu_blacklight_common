@@ -16,6 +16,10 @@ And then execute:
 
 The functionality provided by this gem assumes that Blacklight has already been installed, it does not run the blacklight installer.s
 
+### Dtu::SolrDocument
+
+Make sure your `SolrDocument` model in app/models/solr_document.rb is a subclass of `Dtu::SolrDocument` in order to get those behaviors.
+
 ### Initializer
 
 To modify configuration values like pubmed url, create an initializer at config/initializers/dtu_config.rb.  See the [default initializer file](../config/initializers/dtu_config.rb) for reference.

@@ -16,6 +16,8 @@ class CatalogController < ApplicationController
                                            }
     config.add_facet_field 'author_facet', :limit => 10
     config.add_facet_field 'journal_title_facet', :limit => 10
+    config.add_index_field 'abstract_ts', :helper_method => :render_highlighted_abstract, :highlight => true, separator: ''
+
 
     ##
     # INDEX FIELDS

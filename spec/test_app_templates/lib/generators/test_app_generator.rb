@@ -12,6 +12,7 @@ class TestAppGenerator < Rails::Generators::Base
     generate 'blacklight:install'
     remove_file 'app/controllers/catalog_controller.rb'
     copy_file 'catalog_controller.rb', 'app/controllers/catalog_controller.rb', '-f'
+    copy_file 'solr_document.rb', 'app/modles/solr_document.rb', '-f'
   end
 
   def install_dtu_common
