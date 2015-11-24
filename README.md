@@ -20,18 +20,17 @@ The functionality provided by this gem assumes that Blacklight has already been 
 
 To modify configuration values like pubmed url, create an initializer at config/initializers/dtu_config.rb.  See the [default initializer file](../config/initializers/dtu_config.rb) for reference.
 
-### Generator
+### Solr Config files shared via Generator
 
-To copy the shared solr config files to your local app, run:
+This gem holds the 'official' solr config files that are shared between DDF and FindIt. To get the latest copy of these shared solr config files, run this generator in your local app:
 
     $ rails generate dtu:solr_config_files
-    
-Note that this gem is dependent on a forked version of solr_wrapper. Until the [pull request](https://github.com/cbeer/solr_wrapper/pull/14)  has been merged and released, you will need to update your application's Gemfile with: 
-    
-    gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper' 
-    
 
 ## Solr
+
+**Note**: this gem is dependent on a forked version of solr_wrapper. Until the [pull request](https://github.com/cbeer/solr_wrapper/pull/14)  has been merged and released, you will need to update your application's Gemfile with: 
+    
+    gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper' 
 
 Install a clean copy of solr and configure it to have our "toc" and "metadata" collections
 
