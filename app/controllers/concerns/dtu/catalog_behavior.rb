@@ -28,6 +28,8 @@ module Dtu
             'hl.fragsize' => 300
         }
 
+        config.autocomplete_path = '/solr/metastore/suggest'
+
 
         config.index.title_field = 'title_ts'
         # solr field configuration for document/show views
