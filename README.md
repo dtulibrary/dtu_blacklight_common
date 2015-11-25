@@ -11,10 +11,16 @@ Add this line to your application's Gemfile:
 And then execute:
 
     $ bundle install
-
+    
+To update your app with references to shared functionality, run: 
+    
+    $ rails g dtu:install
+    
+This will update your app's `CatalogController` with a reference to `Dtu::CatalogBehavior`, add routes to your `routes.rb` and include the gem's css file in your `application.css`.
+    
 ## Usage
 
-The functionality provided by this gem assumes that Blacklight has already been installed, it does not run the blacklight installer.s
+The functionality provided by this gem assumes that Blacklight has already been installed, it does not run the blacklight installer.
 
 ### Dtu::SolrDocument
 

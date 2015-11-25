@@ -9,5 +9,11 @@ module Dtu
         "  mount DtuBlacklightCommon::Engine, at: '/'\n"\
       end
     end
+
+    def add_css
+      inject_into_file 'app/assets/stylesheets/application.css', after: "*= require_self\n" do
+        " *= require 'dtu/dtu'\n"
+      end
+    end
   end
 end
