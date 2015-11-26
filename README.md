@@ -72,6 +72,15 @@ To refresh the configs for the collections (ie. metastore and toc) call this tas
 
 Calling config_collections deletes the cores and re-creates them so you have to re-import the data after refreshign the configs.
 
+## Metrics
+
+This gem encapsulates common metric helpers, including Altmetric, DTU Orbit, ISI and PubMed. To configure which ones are displayed, use the `config.metrics_presenter_classes` command in `CatalogController`. By default, all metrics presenters will be used, dependent on the type of resource and availability of functional identifiers. 
+To enable Altmetric, you will also need to add the following line to the head of your `blacklight.html.erb`:
+    
+    <%= Dtu::Metrics::AltmetricPresenter.altmetric_embed_script %>
+    
+This will load the necessary javascript to display the Altmetric badge.
+
 ## Test Data
 
 To index the test/sample data, run
