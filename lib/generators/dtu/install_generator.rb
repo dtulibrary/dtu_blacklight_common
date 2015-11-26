@@ -15,5 +15,12 @@ module Dtu
         " *= require 'dtu/dtu'\n"
       end
     end
+
+    def add_javascript
+      # we're commenting this out at present because the typeahead feature isn't working properly
+      # inject_into_file 'app/assets/javascripts/application.js', after: "//= require blacklight/blacklight\n" do
+      #   "//= require dtu/dtu\n"
+      # end
+    end
   end
 end

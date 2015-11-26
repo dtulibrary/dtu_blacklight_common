@@ -35,6 +35,19 @@ To modify configuration values like pubmed url, create an initializer at config/
 This gem holds the 'official' solr config files that are shared between DDF and FindIt. To get the latest copy of these shared solr config files, run this generator in your local app:
 
     $ rails generate dtu:solr_config_files
+    
+## Typeahead
+
+This gem includes typeahead functionality for Blacklight, based on the code that is contained in Blacklight 6. As such, this code will need to be removed on upgrading to Blacklight 6. Note though that this feature is not production ready yet.
+To enable the typeahead box, you will need to add `//= require dtu/dtu` to your `application.js` and add the following data attributes to the search box in `views/catalog/_search_form.html.erb`:
+
+    data: { autocomplete_enabled: true, autocomplete_path: '/suggest' }
+    
+You will also need to enable styles for it by adding the following line to your `application.css`:
+
+    *= require 'dtu/twitter_typeahead'
+    
+Note this is dependent on the existence of bootstrap variables within your application and may cause errors if these are not defined.
 
 ## Solr
 
