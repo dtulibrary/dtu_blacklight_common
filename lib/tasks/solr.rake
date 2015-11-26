@@ -1,18 +1,28 @@
 require 'solr_wrapper/rake_task'
 namespace :solr do
 
+  def source_config_dir
+    @source_config_dir ||= SolrWrapper.default_instance_options.has_key?(:source_config_dir) ? SolrWrapper.default_instance_options[:source_config_dir] : 'solr_conf'
+  end
+
   task :environment do
-    SolrWrapper.default_instance_options = {
+    solr_defaults = {
         verbose: true,
         cloud: true,
         port: '8983',
         version: '5.3.1',
         instance_dir: 'solr',
-        extra_lib_dir: 'solr_conf/lib'
+        source_config_dir: source_config_dir,
+        extra_lib_dir: File.join(source_config_dir,'lib'),
     }
+    solr_defaults.each_pair do |key, value|
+      SolrWrapper.default_instance_options[key] ||= value
+    end
     SolrWrapper.default_instance_options[:download_dir] ||= Rails.root.to_s + '/tmp' if defined? Rails
-    # @solr_instance = SolrWrapper.default_instance
-    @solr_instance = SolrWrapper::Instance.new SolrWrapper.default_instance_options
+    # Delete the default_instance created by the solr:environment task from solr_wrapper
+    # so that the new defaults will be used when you call SolrWrapper.default_instance
+    SolrWrapper.remove_instance_variable(:@default_instance)
+    @solr_instance = SolrWrapper.default_instance
   end
 
   desc 'Set up a clean solr, configure it and import sample data'
@@ -48,10 +58,10 @@ namespace :solr do
 
     desc 'Configure collections in the solr cloud'
     task :collections => :environment do
-      puts "   creating metastore collection"
-      @solr_instance.create_or_update('metastore', dir:'solr_conf/metastore/conf')
-      puts "   creating toc collection"
-      @solr_instance.create_or_update('toc', dir:'solr_conf/toc/conf')
+      puts "   creating/updating metastore collection"
+      @solr_instance.create_or_reload('metastore', dir:"#{source_config_dir}/metastore/conf")
+      puts "   creating/updating toc collection"
+      @solr_instance.create_or_reload('toc', dir:"#{source_config_dir}/toc/conf")
       puts "finished configuring. Solr is running."
     end
   end

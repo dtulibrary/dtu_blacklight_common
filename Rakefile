@@ -7,6 +7,8 @@ end
 require 'rdoc/task'
 require 'engine_cart/rake_task'
 require 'rspec/core/rake_task'
+require 'solr_wrapper'
+SolrWrapper.default_instance_options[:source_config_dir] = 'lib/generators/dtu/templates/solr_conf'
 
 Dir.glob('lib/tasks/*.rake').each { |r| import r }
 
