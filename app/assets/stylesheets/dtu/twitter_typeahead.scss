@@ -12,7 +12,7 @@
   }
 
   .tt-menu {
-    @extend .dropdown-menu;
+    @extend .dropdown-menu !optional;
     width: 100%;
   }
 
