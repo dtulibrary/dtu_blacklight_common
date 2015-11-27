@@ -45,7 +45,11 @@ To enable the typeahead box, you will need to add `//= require dtu/dtu` to your 
     
 You will also need to enable styles for it by adding the following line to your `application.css`:
 
-    *= require 'dtu/twitter_typeahead'
+    *= require 'dtu/_twitter_typeahead'
+    
+or if you use SASS put this in your `application.scss`:
+
+    @import 'dtu/twitter_typeahead';
     
 Note this is dependent on the existence of bootstrap variables within your application and may cause errors if these are not defined.
 

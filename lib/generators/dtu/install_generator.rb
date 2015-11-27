@@ -1,7 +1,7 @@
 module Dtu
   class InstallGenerator < Rails::Generators::Base
     def update_catalog_controller
-      gsub_file 'app/controllers/catalog_controller.rb', 'include Blacklight::Catalog', 'include Dtu::CatalogBehavior'
+      # gsub_file 'app/controllers/catalog_controller.rb', 'include Blacklight::Catalog', 'include Dtu::CatalogBehavior'
     end
 
     def inject_routes
@@ -11,8 +11,14 @@ module Dtu
     end
 
     def add_css
-      inject_into_file 'app/assets/stylesheets/application.css', after: "*= require_self\n" do
-        " *= require 'dtu/dtu'\n"
+      if File.exists?("app/assets/stylesheets/application.css")
+        inject_into_file 'app/assets/stylesheets/application.css', after: "*= require_self\n" do
+          " *= require 'dtu/dtu'\n"
+        end
+      elsif File.exists?("app/assets/stylesheets/application.scss")
+        append_to_file 'app/assets/stylesheets/application.scss' do
+          "@import 'dtu/twitter_typeahead';\n"
+        end
       end
     end
 
