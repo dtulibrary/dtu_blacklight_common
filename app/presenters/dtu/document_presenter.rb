@@ -30,14 +30,12 @@ module Dtu
     # @option opts [Symbol] :label Render the given field from the document
     # @option opts [Proc] :label Evaluate the given proc
     # @option opts [String] :label Render the given string
-    def render_document_index_label opts = {}
-      label = nil
-      label ||= document.highlight_field(opts[:label])
-      label ||= document.get(opts[:label], :sep => nil) if opts[:label].instance_of? Symbol
-      label ||= opts[:label].call(document, opts) if opts[:label].instance_of? Proc
-      label ||= opts[:label] if opts[:label].is_a? String
-      label ||= document.id
-      render_field_value label
+    def render_document_index_label field, opts = {}
+      if document.highlight_field(field)
+        render_field_value document.highlight_field(field)
+      else
+        super
+      end
     end
 
     # Overrides blacklight default implementation making it return the original value if there are no highlights

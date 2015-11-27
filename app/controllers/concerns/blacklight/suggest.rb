@@ -5,9 +5,7 @@ module Blacklight
 
     included do
       include Blacklight::Configurable
-      # this doesn't seem to be used and enforces a dependency on a later version of BL
-      # include Blacklight::SearchHelper
-      include Blacklight::SolrHelper
+      include Blacklight::SearchHelper
 
       copy_blacklight_config_from(CatalogController)
     end
@@ -21,7 +19,7 @@ module Blacklight
     end
 
     def suggestions_service
-      Blacklight::SuggestSearch.new(params, blacklight_solr).suggestions
+      Blacklight::SuggestSearch.new(params, repository).suggestions
     end
   end
 end

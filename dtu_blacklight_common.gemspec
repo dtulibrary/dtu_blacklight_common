@@ -19,7 +19,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 4.1"
   spec.add_dependency "solr_wrapper"
-  spec.add_dependency "blacklight", '~> 5.7.0'
+  spec.add_dependency "blacklight", '~> 5.16'
   spec.add_dependency "twitter-typeahead-rails", '~> 0.11'
 
   spec.add_development_dependency 'execjs'

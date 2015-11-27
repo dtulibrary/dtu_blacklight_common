@@ -24,12 +24,6 @@ module Dtu
         def highlight_field k
           response['highlighting'][self['id']][k.to_s].map(&:html_safe) if has_highlight_field? k
         end
-
-        # forward-compatibility.
-        # TODO: Remove this when you upgrade to blacklight 6
-        def response
-          @solr_response
-        end
       end
     end
   end
