@@ -33,7 +33,7 @@ namespace :solr do
     Rake::Task["solr:import:toc"].execute
   end
 
-  desc 'Run all solr config tasks'
+  desc 'Run all solr config tasks (invokes solr:config:all)'
   task :config do
     Rake::Task['solr:config:all'].invoke
   end
@@ -56,7 +56,7 @@ namespace :solr do
       @solr_instance.configure
     end
 
-    desc 'Configure collections in the solr cloud'
+    desc 'Configure metastore and toc collections in the solr cloud'
     task :collections => :environment do
       puts "   creating/updating metastore collection"
       @solr_instance.create_or_reload('metastore', dir:"#{source_config_dir}/metastore/conf")
@@ -66,7 +66,7 @@ namespace :solr do
     end
   end
 
-  desc "Import all sample data into solr"
+  desc "Import all sample data into solr (invokes solr:import:all)"
   task :import do
     Rake::Task['solr:import:all'].invoke
   end

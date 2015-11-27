@@ -51,11 +51,15 @@ Note this is dependent on the existence of bootstrap variables within your appli
 
 ## Solr
 
-**Note**: this gem is dependent on a forked version of solr_wrapper. Until the [pull request](https://github.com/cbeer/solr_wrapper/pull/14)  has been merged and released, you will need to update your application's Gemfile with: 
+**Note**: this gem is dependent on a forked version of solr_wrapper. Until the [pull request](https://github.com/cbeer/solr_wrapper/pull/17)  has been merged and released, you will need to update your application's Gemfile with: 
     
     gem 'solr_wrapper', github: 'flyingzumwalt/solr_wrapper' 
 
-Install a clean copy of solr and configure it to have our "toc" and "metadata" collections
+To do everything with one rake task - install clean copy of solr, configure it and import the data: 
+    
+    $ rake solr:setup_and_import    
+    
+To install a clean copy of solr and configure it to have our "toc" and "metadata" collections
 
     $ rake solr:clean
     $ rake solr:config
@@ -67,10 +71,24 @@ To start and stop solr, use
     
 To refresh the configs for the collections (ie. metastore and toc) call this task with solr running:
 
-    $ rake solr:config_collections
-    $ rake solr:import
+    $ rake solr:config:collections
 
-Calling config_collections deletes the cores and re-creates them so you have to re-import the data after refreshign the configs.
+## Test Data
+
+To index the test/sample data, run
+
+    $ rake solr:index:all
+    
+To index only metastore or toc, run `solr:index:metastore` or `solr:index:toc`
+    
+### Note about Solr config directories
+
+The `solr:config` rake tasks are set up to assume that your configs are in a directory called `solr_conf`.  You can override this by setting `SolrWrapper.default_instance_options[:source_config_dir]`.
+For example, the Rakefile in this gem tells SolrWrapper to use the config directories in `lib/generators/dtu/templates/solr_conf`
+
+```ruby
+SolrWrapper.default_instance_options[:source_config_dir] = 'lib/generators/dtu/templates/solr_conf'
+```
 
 ## Metrics
 
