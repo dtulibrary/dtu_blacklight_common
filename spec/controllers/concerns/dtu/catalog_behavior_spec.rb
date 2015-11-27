@@ -43,5 +43,19 @@ describe Dtu::CatalogBehavior do
         is_expected.to eq [Dtu::Metrics::AltmetricPresenter, Dtu::Metrics::IsiPresenter, Dtu::Metrics::DtuOrbitPresenter, Dtu::Metrics::PubmedPresenter]
       }
     end
+
+    describe 'index_title_field' do
+      subject {controller.blacklight_config.index.title_field }
+      it { is_expected.to eq 'title_ts' }
+    end
+    describe 'show_title_field' do
+      subject {controller.blacklight_config.show.title_field }
+      it { is_expected.to eq 'title_ts' }
+    end
+
+    describe 'per_page' do
+      subject { controller.blacklight_config.per_page }
+      it { is_expected.to eq [ 10, 20, 50 ] }
+    end
   end
 end
