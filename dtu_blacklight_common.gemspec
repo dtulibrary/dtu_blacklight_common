@@ -7,8 +7,8 @@ require "dtu_blacklight_common/version"
 Gem::Specification.new do |spec|
   spec.name        = "dtu_blacklight_common"
   spec.version     = DtuBlacklightCommon::VERSION
-  spec.authors     = ["Ronan McHugh"]
-  spec.email       = ["mchugh.r@gmail.com"]
+  spec.authors     = ["Ronan McHugh", "Matt Zumwalt"]
+  spec.email       = ["romc@dtu.dk"]
   spec.homepage    = "https://github.com/dtulibrary/dtu_blacklight_common"
   spec.summary     = "Shared Blacklight functionality for Toshokan and DDF."
   spec.description = "A Rails engine that provides shared Blacklight functionality for Toshokan and DDF"
