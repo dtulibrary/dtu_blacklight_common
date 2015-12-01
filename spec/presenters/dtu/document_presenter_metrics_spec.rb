@@ -35,9 +35,15 @@ describe Dtu::DocumentPresenter::Metrics, type: :view do
     subject { presenter.metrics_presenter_classes }
     it { is_expected.to eq [Dtu::Metrics::AltmetricPresenter, Dtu::Metrics::IsiPresenter, Dtu::Metrics::DtuOrbitPresenter, Dtu::Metrics::PubmedPresenter] }
     context 'when @configuration.metrics_presenter_classes is available' do
-      let(:configuration) { double("Blacklight Config", metrics_presenter_classes: ['metric1', 'metric2']) }
+      let(:configuration) { double("Blacklight Config", metrics_presenter_classes: [ Dtu::Metrics::IsiPresenter, Dtu::Metrics::PubmedPresenter]) }
       it 'uses that list' do
-        expect(subject).to eq ['metric1', 'metric2']
+        expect(subject).to eq  [ Dtu::Metrics::IsiPresenter, Dtu::Metrics::PubmedPresenter]
+      end
+    end
+    context 'when configured with string names of classes' do
+      let(:configuration) { double("Blacklight Config", metrics_presenter_classes: ['Dtu::Metrics::AltmetricPresenter']) }
+      it 'invokes the classes' do
+        expect(subject).to eq [ Dtu::Metrics::AltmetricPresenter ]
       end
     end
   end

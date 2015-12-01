@@ -1,8 +1,16 @@
 module Dtu::DocumentPresenter::Metrics
 
   # Metrics that might be rendered for each document
+  # Note that in DDF BL 5.16 upgrade we were not able
+  # to assign class names to metrics config
+  # therefore we add some extra code to convert string names to classes 
+  # e.g. 'Dtu::Metrics::AltmetricPresenter' => Dtu::Metrics::AltmetricPresenter
   def metrics_presenter_classes
-    @configuration.try(:metrics_presenter_classes) ? @configuration.metrics_presenter_classes : [Dtu::Metrics::AltmetricPresenter, Dtu::Metrics::IsiPresenter, Dtu::Metrics::DtuOrbitPresenter, Dtu::Metrics::PubmedPresenter]
+    classes = @configuration.try(:metrics_presenter_classes) || [Dtu::Metrics::AltmetricPresenter, Dtu::Metrics::IsiPresenter, Dtu::Metrics::DtuOrbitPresenter, Dtu::Metrics::PubmedPresenter]
+    classes.map! do |klazz| 
+      klazz.class == String ? klazz.try(:constantize) : klazz
+    end
+    classes
   end
 
   def metrics_presenters
