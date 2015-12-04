@@ -14,6 +14,7 @@ module Dtu
       def altmetric_badge(opts={})
         content_tag :div, class:'altmetric-wrapper' do
           identifiers = document.recognized_identifiers
+
           tag_attributes = {
               class:'altmetric-embed',
               "data-badge-type"=>'donut',
@@ -51,8 +52,10 @@ module Dtu
         document.recognized_identifiers.any? { |k,v| [:doi, :pmid, :arxiv].include? k }
       end
 
+      # altmetrics only has data on content from after July 2011
+      # See https://www.altmetric.com/whatwedo.php
       def current?
-        date = document['pub_date_tsort'].try(:first)
+        date = document['pub_date_tsort'].try(:first) || document['pub_date_tis'].try(:first)
         date.present? && date.try(:to_i) > 2010
       end
     end
