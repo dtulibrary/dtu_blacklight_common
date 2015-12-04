@@ -4,7 +4,7 @@ module Dtu
       presents :document
 
       def should_render?
-        document.recognized_identifiers.any? { |k,v| [:doi, :pmid, :arxiv].include? k }
+        recognized_identifiers? && current?
       end
 
       def render(opts={})
@@ -36,6 +36,18 @@ module Dtu
 
       def self.altmetric_embed_script
         return "<script type='text/javascript' src='https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js'></script>".html_safe
+      end
+
+      private
+
+      # see if there are any identifiers altmetrics can use
+      def recognized_identifiers?
+        document.recognized_identifiers.any? { |k,v| [:doi, :pmid, :arxiv].include? k }
+      end
+
+      def current?
+        date = document['pub_date_tsort'].try(:first)
+        date.present? && date.try(:to_i) > 2010
       end
     end
   end

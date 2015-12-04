@@ -17,9 +17,17 @@ describe Dtu::Metrics::AltmetricPresenter, type: :view do
       let(:document) { Dtu::SolrDocument.new("doi_ss"=>[], "source_id_ss"=>[]) }
       it { is_expected.to be false }
     end
-    context 'when the document does have at least one relevant identifier' do
-      let(:document) { Dtu::SolrDocument.new("doi_ss"=>["10.1016/j.tcs.2009.09.015"], "source_id_ss"=>[]) }
+    context 'when the document does have at least one relevant identifier and is from 2011 or afterwards' do
+      let(:document) { Dtu::SolrDocument.new("doi_ss"=>["10.1016/j.tcs.2009.09.015"], "source_id_ss"=>[], 'pub_date_tsort'=> ['2011']) }
       it { is_expected.to be true }
+    end
+    context 'when the document is from before 2011' do
+      let(:document) { Dtu::SolrDocument.new("doi_ss"=>["10.1016/j.tcs.2009.09.015"], "source_id_ss"=>[], 'pub_date_tsort'=> ['2010']) }
+      it { is_expected.to be false }
+    end
+    context 'when the pub date is a nonsense string' do
+      let(:document) { Dtu::SolrDocument.new("doi_ss"=>["10.1016/j.tcs.2009.09.015"], "source_id_ss"=>[], 'pub_date_tsort'=> ['blablabla']) }
+      it { is_expected.to be false }
     end
   end
   describe '#altmetric_badge' do
