@@ -14,7 +14,13 @@ module Dtu
       def altmetric_badge(opts={})
         content_tag :div, class:'altmetric-wrapper' do
           identifiers = document.recognized_identifiers
-          tag_attributes = {class:'altmetric-embed',"data-badge-type"=>'donut', "data-badge-popover"=>'left'}
+          tag_attributes = {
+              class:'altmetric-embed',
+              "data-badge-type"=>'donut',
+              "data-badge-popover"=>'left',
+              'data-hide-no-mentions' => 'true',
+              'data-link-target' => '_blank'
+            }
           ["data-badge-type", "data-badge-popover", :class].each do |attribute|
             if opts[attribute]
               tag_attributes[attribute] = opts[attribute]

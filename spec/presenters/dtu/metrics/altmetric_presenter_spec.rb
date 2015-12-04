@@ -44,7 +44,13 @@ describe Dtu::Metrics::AltmetricPresenter, type: :view do
 
     end
     it "sets default data attributes" do
-      expect( presenter.altmetric_badge ).to have_xpath("//div[@class=\"altmetric-embed\" and @data-badge-popover=\"left\" and @data-badge-type=\"donut\"]")
+      expect( presenter.altmetric_badge ).to have_xpath(
+      "//div[@class=\"altmetric-embed\"
+      and @data-badge-popover=\"left\"
+      and @data-badge-type=\"donut\"
+      and @data-hide-no-mentions=\"true\"
+      and @data-link-target=\"_blank\"]"
+      )
     end
     it "allows you to explicitly set the altmetric data attributes" do
       expect( presenter.altmetric_badge("data-badge-popover"=>"bottom" ) ).to have_xpath("//div[@class=\"altmetric-embed\" and @data-badge-popover=\"bottom\"]")
