@@ -78,4 +78,22 @@ describe DocumentHelper do
       expect(subject).to eq(["Marie Shelley", "<em>Emily Brontë</em>", "Charlotte Brontë", 'George Eliot'])
     end
   end
+
+  describe 'render_first_highlight_field' do
+    let(:journal_titles) { ['Diabetic Medicine', 'Diab. Med', 'Diab Med']}
+    let (:document) { SolrDocument.new('journal_title_ts' => journal_titles) }
+    subject { helper.render_first_highlight_field(document: document, field: 'journal_title_ts') }
+    before do
+      allow(document).to receive(:has_highlight_field?).with('journal_title_ts').and_return(matching_field?)
+      allow(document).to receive(:highlight_field).with('journal_title_ts').and_return(['<em>Diabetic</em> <em>Medicine</em>', '<em>Diab</em> <em>Med</em>'])
+    end
+    context 'when there is a matching highlight field' do
+      let(:matching_field?) { true }
+      it { is_expected.to eql '<em>Diabetic</em> <em>Medicine</em>' }
+    end
+    context 'when there is no matching highlight field' do
+      let(:matching_field?) { false }
+      it { is_expected.to eql 'Diabetic Medicine' }
+    end
+  end
 end
