@@ -22,6 +22,21 @@ module Dtu
       all_values
     end
 
+    def render_first_highlight_field args
+      document ||= args[:document]
+      field = args[:field]
+      first_value = args[:document][field].first
+      if document.has_highlight_field?(field)
+        highlighted_values = document.highlight_field(field)
+        val_index = strip_emph(highlighted_values).index(first_value)
+        return highlighted_values[val_index] unless val_index.nil?
+      end
+      first_value
+    end
+
+    def strip_emph(vals)
+      vals.collect{ |val| val.gsub('<em>','').gsub('</em>','') }
+    end
 
     def render_highlighted_abstract args
       document ||= args[:document]
