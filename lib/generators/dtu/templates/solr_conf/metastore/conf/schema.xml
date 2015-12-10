@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<schema name="example-data-driven-schema" version="1.5">
+<schema name="example-data-driven-schema" version="1.6">
   <uniqueKey>id</uniqueKey>
   <fieldType name="ancestor_path" class="solr.TextField">
     <analyzer type="index">
@@ -489,7 +489,74 @@
   <dynamicField name="*_d" type="double" indexed="true" stored="true"/>
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
   <dynamicField name="*_c" type="currency" indexed="true" stored="true"/>
-  
+
+  <!--  From Spotlight -->
+  <dynamicField name="*_bbox"   type="location_rpt" stored="true" indexed="true"/>
+  <dynamicField name="*_ng"   type="text_en_ng" stored="false" indexed="true" multiValued="true"/>
+
+  <!-- <dynamicField name="*_ts" type="text" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_tsm" type="text" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_tsi" type="text" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_tsim" type="text" stored="true" indexed="true" multiValued="true"/>
+  <dynamicField name="*_tsiv" type="text" stored="true" indexed="true" multiValued="false" termVectors="true" termPositions="true" termOffsets="true"/>
+  <dynamicField name="*_tsimv" type="text" stored="true" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+
+  <dynamicField name="*_tes" type="text_en" stored="true" indexed="false" multiValued="false"/>
+  <dynamicField name="*_tesm" type="text_en" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_tesi" type="text_en" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_tesim" type="text_en" stored="true" indexed="true" multiValued="true"/>
+  <dynamicField name="*_tesiv" type="text_en" stored="true" indexed="true" multiValued="false" termVectors="true" termPositions="true" termOffsets="true"/>
+  <dynamicField name="*_tesimv" type="text_en" stored="true" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_ss" type="string" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_ssm" type="string" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_ssi" type="string" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_ssim" type="string" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_is" type="int" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_ism" type="int" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_isi" type="int" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_isim" type="int" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_dts" type="date" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_dtsm" type="date" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_dtsi" type="date" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_dtsim" type="date" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_ls" type="long" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_lsm" type="long" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_lsi" type="long" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_lsim" type="long" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- double (_db...) -->
+  <dynamicField name="*_dbs" type="double" stored="true" indexed="false" multiValued="false"/>
+  <dynamicField name="*_dbsm" type="double" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_dbsi" type="double" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_dbsim" type="double" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_fs" type="float" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_fsm" type="float" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_fsi" type="float" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_fsim" type="float" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- There is already a dynamic field of a different type with the same name defined  -->
+  <!-- <dynamicField name="*_bs" type="boolean" stored="true" indexed="false" multiValued="false"/> -->
+  <dynamicField name="*_bsi" type="boolean" stored="true" indexed="true" multiValued="false"/>
+
+  <dynamicField name="*_lls" type="location" stored="true" indexed="false" multiValued="false"/>
+  <dynamicField name="*_llsm" type="location" stored="true" indexed="false" multiValued="true"/>
+  <dynamicField name="*_llsi" type="location" stored="true" indexed="true" multiValued="false"/>
+  <dynamicField name="*_llsim" type="location" stored="true" indexed="true" multiValued="true"/>
+
+  <!-- you must define copyField source and dest fields explicity or schemaBrowser doesn't work -->
+  <field name="all_text_timv" type="text" stored="false" indexed="true" multiValued="true" termVectors="true" termPositions="true" termOffsets="true"/>
+
+
   <!-- From 4.10 schema.xml -->
   <dynamicField name="*_sf"  type="string" indexed="false" stored="true" multiValued="false" />
   <dynamicField name="*_ssf" type="string" indexed="false" stored="true" multiValued="true" />
