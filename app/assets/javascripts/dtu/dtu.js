@@ -1,2 +1,2 @@
-//= require 'twitter/typeahead'
+//= require 'jquery-ui'
 //= require 'dtu/autocomplete'

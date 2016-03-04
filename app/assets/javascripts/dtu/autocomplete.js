@@ -1,36 +1,29 @@
-
-/*global Bloodhound */
-$(document).ready(function() {
-
-    'use strict';
-    $('[data-autocomplete-enabled="true"]').each(function() {
-        var $el = $(this);
-        var suggestUrl = $el.data().autocompletePath;
-
-        var terms = new Bloodhound({
-            datumTokenizer: Bloodhound.tokenizers.whitespace('term'),
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            sufficient: 1,
-            remote: {
-                url: suggestUrl + '?q=%QUERY',
-                wildcard: '%QUERY'
+/**
+* Activate jQuery autocomplete
+* The autocomplete retrieves results from a SuggestController
+* which in turn searches a request handler in Solr
+**/
+$(function() {
+  $("[data-autocomplete-enabled='true']").autocomplete({
+    source: function(request, response){
+      $.ajax({
+        url: $("[data-autocomplete-enabled='true']").data('autocompletePath'),
+        data: { q: request.term },
+        dataType: 'json',
+        success: function(data){
+          response($.map(data,function(item){
+            return {
+              label: item,
+              value: item
             }
-        });
-
-        //terms.initialize();
-
-        $el.typeahead({
-                hint: true,
-                highlight: true,
-                minLength: 2,
-                async: true,
-                limit: 5
-            },
-            {
-                name: 'terms',
-                displayKey: 'term',
-                source: terms.ttAdapter()
-            });
-    });
+          }));
+        },
+        error: function(){
+          console.log("error");
+          response([]);
+        }
+      });
+    },
+    minLength: 2
+  });
 });
-

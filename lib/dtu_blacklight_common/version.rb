@@ -1,3 +1,3 @@
 module DtuBlacklightCommon
-  VERSION = "5.16.2"
+  VERSION = "5.16.3"
 end

@@ -23,7 +23,7 @@ module Blacklight
         # response.try(:[], suggest_path).try(:[], 'mySuggester').try(:[], request_params[:q]).try(:[], 'suggestions') || []
         # this has been changed a bit since we're not using the default request handler naming and our solr url is
         # a little different than they seem to expect here
-        response.try(:[], 'suggest').try(:[], 'completions').try(:[], request_params[:q]).try(:[], 'suggestions') || []
+        response.try(:[], 'spellcheck').try(:[], 'suggestions').try(:last).try(:[], 'suggestion') || []
       end
     end
   end
