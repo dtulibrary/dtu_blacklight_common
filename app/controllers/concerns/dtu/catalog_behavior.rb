@@ -24,7 +24,7 @@ module Dtu
             :hl => true,
             'hl.snippets' => 3,
             'hl.usePhraseHighlighter' => true,
-            'hl.fl' => 'title_ts, author_ts, journal_title_ts, conf_title_ts, abstract_ts, publisher_ts',
+            'hl.fl' => 'title_ts, author_ts, name_ts, orcid_ss, journal_title_ts, conf_title_ts, abstract_ts, publisher_ts',
             'hl.fragsize' => 300
         }
 
