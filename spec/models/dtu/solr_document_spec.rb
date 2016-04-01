@@ -39,8 +39,8 @@ describe Dtu::SolrDocument do
         expect(subject.keys.first).to eql 'Kimmel, A.'
         expect(subject.keys.last).to eql 'Oliver, B.'
       end
-      it 'returns nil for null values' do
-        expect(subject.values.first).to eql nil
+      it 'returns blank strings for null values' do
+        expect(subject.values.first).to eql ''
       end
       it 'returns numbers when relevant' do
         expect(subject.values.last).to eql 2
