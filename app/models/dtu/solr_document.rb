@@ -20,8 +20,7 @@ module Dtu
     def contributors_with_affiliations(contributors, role)
       output = {}
       contributors.map.with_index do |cont, i|
-        index = affiliation_associations[role][i] || ''
-        output[cont] = index
+        output[cont] = affiliation_associations[role][i]
       end
       output
     end

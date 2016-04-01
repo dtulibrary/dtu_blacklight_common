@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    dtu_blacklight_common (5.7.1.6)
+    dtu_blacklight_common (5.7.1.4)
       blacklight (~> 5.7.0)
       font-awesome-rails
       rails (~> 4.1)
