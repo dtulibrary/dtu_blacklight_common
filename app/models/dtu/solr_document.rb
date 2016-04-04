@@ -25,6 +25,18 @@ module Dtu
       output
     end
 
+    def person?
+      self['format'] == 'person'
+    end
+
+    def has_orcid?
+      self['has_orcid_b'] == true
+    end
+
+    def orcid
+      self['orcid_ss'].first || ''
+    end
+
     def authors
       self['author_ts'] || []
     end

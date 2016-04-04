@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    dtu_blacklight_common (5.7.1.4)
+    dtu_blacklight_common (5.7.1.5)
       blacklight (~> 5.7.0)
       font-awesome-rails
       rails (~> 4.1)
@@ -55,9 +55,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.1.1)
+    autoprefixer-rails (6.3.5)
       execjs
-      json
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     blacklight (5.7.2)
@@ -67,9 +66,9 @@ GEM
       nokogiri (~> 1.6)
       rails (>= 3.2.6, < 5)
       rsolr (~> 1.0.6)
-    bootstrap-sass (3.3.5.1)
-      autoprefixer-rails (>= 5.0.0.1)
-      sass (>= 3.3.0)
+    bootstrap-sass (3.3.6)
+      autoprefixer-rails (>= 5.2.1)
+      sass (>= 3.3.4)
     builder (3.2.2)
     byebug (8.2.0)
     capybara (2.4.4)
@@ -86,7 +85,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     debug_inspector (0.0.2)
-    deprecation (0.2.2)
+    deprecation (1.0.0)
       activesupport
     diff-lcs (1.2.5)
     engine_cart (0.8.0)
@@ -94,6 +93,8 @@ GEM
       rails
     erubis (2.7.0)
     execjs (2.6.0)
+    font-awesome-rails (4.5.0.1)
+      railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -234,4 +235,4 @@ DEPENDENCIES
   xray-rails
 
 BUNDLED WITH
-   1.10.6
+   1.11.2
