@@ -40,32 +40,6 @@ module Dtu
         # handler defaults, or have no facets.
         config.add_facet_fields_to_solr_request!
 
-        # SORTING
-
-        relevance_ordering = [
-            'score desc',
-            'pub_date_tsort desc',
-            'journal_vol_tsort desc',
-            'journal_issue_tsort desc',
-            'journal_page_start_tsort asc',
-            'title_sort asc'
-        ]
-        config.add_sort_field relevance_ordering.join(', '), :label => 'relevance'
-
-        year_ordering = [
-            'pub_date_tsort desc',
-            'journal_vol_tsort desc',
-            'journal_issue_tsort desc',
-            'journal_page_start_tsort asc',
-            'title_sort asc'
-        ]
-        config.add_sort_field year_ordering.join(', '), :label => 'year'
-
-        title_ordering = [
-            'title_sort asc',
-            'pub_date_tsort desc'
-        ]
-        config.add_sort_field title_ordering.join(', '), :label => 'title'
       end
     end
   end
