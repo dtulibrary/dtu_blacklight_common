@@ -18,15 +18,6 @@ module Dtu
 
         config.solr_path = 'ddf_publ'
         config.document_presenter_class = Dtu::DocumentPresenter
-        config.default_solr_params = {
-            :q => '*:*',
-            :rows => 10,
-            :hl => true,
-            'hl.snippets' => 3,
-            'hl.usePhraseHighlighter' => true,
-            'hl.fl' => 'title_ts, author_ts, name_ts, orcid_ss, journal_title_ts, conf_title_ts, abstract_ts, publisher_ts',
-            'hl.fragsize' => 300
-        }
 
         config.autocomplete_path = '/solr/metastore/suggest'
 
