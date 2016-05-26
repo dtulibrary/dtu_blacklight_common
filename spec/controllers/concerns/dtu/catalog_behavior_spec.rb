@@ -17,18 +17,6 @@ describe Dtu::CatalogBehavior do
       subject { controller.blacklight_config.document_solr_path }
       it { is_expected.to eq nil }
     end
-    describe 'default_solr_params' do
-      subject { controller.blacklight_config.default_solr_params }
-      it 'includes params for hit highlighting' do
-        expect(subject).to include(
-                               :hl => true,
-                               'hl.snippets' => 3,
-                               'hl.usePhraseHighlighter' => true,
-                               'hl.fl' => 'title_ts, author_ts, journal_title_ts, conf_title_ts, abstract_ts, publisher_ts',
-                               'hl.fragsize' => 300
-                           )
-      end
-    end
     it 'enables highlighting for some fields' do
       pending 'Until we implement highlighting'
       ['author_ts', 'journal_title_ts', 'publisher_ts', 'abstract_ts'].each do |field|

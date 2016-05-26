@@ -9,7 +9,7 @@ GIT
 PATH
   remote: .
   specs:
-    dtu_blacklight_common (5.7.1.5)
+    dtu_blacklight_common (5.7.1.10)
       blacklight (~> 5.7.0)
       font-awesome-rails
       rails (~> 4.1)
@@ -55,7 +55,7 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     arel (6.0.3)
-    autoprefixer-rails (6.3.5)
+    autoprefixer-rails (6.3.6.1)
       execjs
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
@@ -93,7 +93,7 @@ GEM
       rails
     erubis (2.7.0)
     execjs (2.6.0)
-    font-awesome-rails (4.5.0.1)
+    font-awesome-rails (4.6.3.0)
       railties (>= 3.2, < 5.1)
     globalid (0.3.6)
       activesupport (>= 4.1.0)

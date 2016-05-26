@@ -50,8 +50,13 @@ module Dtu
     end
 
     # Convert the affiliations associations json to a Hash
+    # Return a default hash if the field is missing
     def affiliation_associations
-      JSON.parse(self['affiliation_associations_json']) || {}
+      @affiliation_associations ||= if self['affiliation_associations_json'].present?
+        JSON.parse(self['affiliation_associations_json'])
+      else
+        { 'editor' => [], 'supervisor' => [], 'author' => [] }
+      end
     end
   end
 end

@@ -28,6 +28,28 @@ describe Dtu::SolrDocument do
       it 'adds footnotes for the relevant institution' do
         expect(subject.values.first).to eql 2
       end
+
+      context 'when there is no association json' do
+        let(:source_doc) {{ 'author_ts' => [
+            "Matos, T.",
+            "Senkbeil, Silja",
+            "Mendonça, A.",
+            "Queiroz, J. A.",
+            "Kutter, Jörg Peter",
+            "Bulow, L."
+        ],
+          'affiliation_ts' => [
+              'Department of Micro- and Nanotechnology, Technical University of Denmark',
+              'ChemLabChip, Department of Micro- and Nanotechnology, Technical University of Denmark',
+              'Lund University',
+              'University of Beira Interior'
+          ]
+        }}
+        it { should be_a Hash }
+        it 'should return authors without affiliations' do
+          expect(subject.values.first).to eql nil
+        end
+      end
     end
     describe 'editors_with_affiliations' do
       let(:source_doc){{
